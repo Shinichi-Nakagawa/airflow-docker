@@ -1,0 +1,50 @@
+version: "3.0"
+services:
+  webserver:
+    image: shinyorke/airflow:latest
+    container_name: airflow_webserver
+    env_file: env_example
+    ports:
+      - "80:8080"
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    restart: unless-stopped
+    command: ["webserver", "init"]
+  scheduler:
+    image: shinyorke/airflow:latest
+    container_name: airflow_scheduler
+    env_file: env_example
+    restart: unless-stopped
+    depends_on:
+      - webserver
+    command: ["scheduler", ""]
+  worker:
+    image: shinyorke/airflow:latest
+    container_name: airflow_worker
+    env_file: env_example
+    restart: unless-stopped
+    depends_on:
+      - webserver
+      - redis
+    command: ["worker", ""]
+  redis:
+    image: redis:3.2.9-alpine
+    container_name: airflow_redis
+    command: ["redis-server", "--appendonly", "yes"]
+  mysql:
+    image: mysql:latest
+    container_name: airflow_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=airflow
+      - MYSQL_USER=airflow
+      - MYSQL_PASSWORD=password
+    command: ["mysqld"]
+
+
+networks:
+  default:
+    external:
+      name: airflow_link
