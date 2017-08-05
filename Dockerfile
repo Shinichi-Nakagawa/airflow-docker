@@ -19,7 +19,8 @@ ENV AIRFLOW_DB_DATABASE=airflow
 RUN mkdir -p ${AIRFLOW_HOME}
 WORKDIR ${AIRFLOW_HOME}
 RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} -G sudo ${AIRFLOW_USER} && \
-  apt-get install -y --fix-broken && apt-get autoremove && apt-get update && apt-get -y upgrade && apt-get -y install \
+  apt-get install -y --fix-broken && apt-get autoremove &&\
+  apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends apt-utils \
   mysql-client  \
   libmysqlclient-dev \
   libssl-dev \

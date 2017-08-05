@@ -7,14 +7,9 @@ from jinja2 import Environment, FileSystemLoader
 __author__ = 'Shinichi Nakagawa'
 
 ENVIRONMENTS = (
-    'DB_ENGINNE',
     'AIRFLOW_HOME',
-    'AIRFLOW_DB_USER',
-    'AIRFLOW_DB_PASSWORD',
-    'AIRFLOW_DB_HOST',
-    'AIRFLOW_DB_PORT',
-    'AIRFLOW_DB_DATABASE',
     'AIRFLOW_EXECUTOR',
+    'AIRFLOW_DB_CONN',
     'AIRFLOW_WORKER',
     'AIRFLOW_WORKER_HOST',
     'AIRFLOW_WORKER_PORT',
