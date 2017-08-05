@@ -1,4 +1,6 @@
-# No Ball Django application server
+#
+# Docker image for airflow
+#
 
 FROM python:3.6.2
 
