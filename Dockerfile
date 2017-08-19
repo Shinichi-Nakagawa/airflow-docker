@@ -10,11 +10,6 @@ MAINTAINER Shinichi Nakagawa <spirits.is.my.rader@gmail.com>
 ENV AIRFLOW_USER=airflow
 ENV AIRFLOW_HOME=/usr/local/airflow
 ENV AIRFLOW_DB_USER=airflow
-ENV AIRFLOW_DB_PASSWORD=password
-ENV AIRFLOW_DB_HOST=localhost
-ENV AIRFLOW_DB_PORT=3306
-ENV AIRFLOW_DB_DATABASE=airflow
-
 
 
 # add to application
