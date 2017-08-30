@@ -1,20 +1,32 @@
+# User & HOME
 AIRFLOW_USER=airflow
 AIRFLOW_HOME=/usr/local/airflow
 
-# MySQL
+# Database(MySQL)
 # AIRFLOW_DB_CONN=mysql://airflow:password@localhost:3306/airflow
 
-# sqlite
+# Database(sqlite)
 AIRFLOW_DB_CONN=sqlite:////usr/local/airflow/airflow.db
 
+# Airflow webserver settings
+AIRFLOW_WEB_PROTOCOL=http
+AIRFLOW_WEB_HOST=localhost
+AIRFLOW_WEB_PORT=8080
+AIRFLOW_WEB_WORKERS=4
+
+# Airflow worker settings
 AIRFLOW_WORKER=redis
 AIRFLOW_WORKER_HOST=redis
 AIRFLOW_WORKER_PORT=6379
 AIRFLOW_WORKER_DATABASE=0
+
+# Airflow base settings
 # SequentialExecutor, LocalExecutor, CeleryExecutor
 AIRFLOW_EXECUTOR=SequentialExecutor
 AIRFLOW_EXAMPLES=False
 AIRFLOW_AUTH=False
 SQL_ALCHEMY_POOL_SIZE=5
 SQL_ALCHEMY_POOL_RECYCLE=3600
+
+# Application PATH
 PYTHONPATH=/usr/local/airflow
