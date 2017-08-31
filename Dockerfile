@@ -2,7 +2,7 @@
 # Docker image for airflow
 #
 
-FROM python:3.6.2
+FROM python:3.6.2-stretch
 
 MAINTAINER Shinichi Nakagawa <spirits.is.my.rader@gmail.com>
 
@@ -19,7 +19,7 @@ RUN useradd -ms /bin/bash -d ${AIRFLOW_HOME} -G sudo ${AIRFLOW_USER} && \
   apt-get install -y --fix-broken && apt-get autoremove &&\
   apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends apt-utils \
   mysql-client  \
-  libmysqlclient-dev \
+  default-libmysqlclient-dev \
   libssl-dev \
   libffi-dev
 COPY requirements.txt ${AIRFLOW_HOME}

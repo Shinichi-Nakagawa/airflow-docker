@@ -100,3 +100,6 @@ ENV/
 # mypy
 .mypy_cache/
 /airflow/airflow.cfg
+
+# example
+test_db_data/

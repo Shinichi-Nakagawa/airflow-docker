@@ -2,8 +2,8 @@
 AIRFLOW_USER=airflow
 AIRFLOW_HOME=/usr/local/airflow
 
-# Database(sqlite)
-AIRFLOW_DB_CONN=sqlite:////usr/local/airflow/airflow.db
+# Database(MySQL)
+AIRFLOW_DB_CONN=mysql://airflow:password@db:3306/airflow
 
 # Airflow webserver settings
 AIRFLOW_WEB_PROTOCOL=http
