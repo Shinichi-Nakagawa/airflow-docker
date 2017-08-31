@@ -1,0 +1,42 @@
+version: "3.0"
+services:
+  webserver:
+    build:
+      context: ./
+      dockerfile: airflow_dag_sample/DockerfileExample
+    container_name: airflow_webserver
+    env_file: ./env_example_docker-compose
+    ports:
+      - "8080:8080"
+    restart: always
+    command: ["webserver", "init"]
+  scheduler:
+    build:
+      context: ./
+      dockerfile: airflow_dag_sample/DockerfileExample
+    container_name: airflow_scheduler
+    env_file: ./env_example_docker-compose
+    restart: always
+    depends_on:
+      - webserver
+    command: ["scheduler", ""]
+  worker:
+    build:
+      context: ./
+      dockerfile: airflow_dag_sample/DockerfileExample
+    container_name: airflow_worker
+    env_file: ./env_example_docker-compose
+    restart: always
+    depends_on:
+      - webserver
+      - redis
+    command: ["worker", ""]
+  redis:
+    image: redis:3.2.9-alpine
+    container_name: airflowl_redis
+    command: ["redis-server", "--appendonly", "yes"]
+
+networks:
+  default:
+    external:
+      name: airflow_link

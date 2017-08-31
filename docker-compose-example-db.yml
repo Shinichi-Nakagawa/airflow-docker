@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+  db:
+    image: mysql:latest
+    container_name: airflow_db
+    env_file: ./env_example_mysql_db
+    ports:
+      - 3306:3306
+    volumes:
+      - ./test_db_data:/var/lib/mysql
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+
+networks:
+  default:
+    external:
+      name: airflow_link
