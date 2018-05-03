@@ -2,9 +2,9 @@
 # Docker image for airflow
 #
 
-FROM python:3.6.2-stretch
+FROM python:3.6-stretch
 
-MAINTAINER Shinichi Nakagawa <spirits.is.my.rader@gmail.com>
+LABEL maintainer "Shinichi Nakagawa <spirits.is.my.rader@gmail.com>"
 
 # airflow env
 ENV AIRFLOW_USER=airflow
